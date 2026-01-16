@@ -10,38 +10,6 @@
         .game { background: #fffacd; border: 2px solid #ffd700; padding: 20px; margin: 20px auto; width: 80%; border-radius: 10px; }
         button { background: #ff4500; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin: 5px; }
         button:hover { background: #ff6347; }
-        #quiz-result { font-weight: bold; color: #ff1493; }
-        .memory-grid { display: grid; grid-template-columns: repeat(4, 50px); gap: 5px; justify-content: center; margin: 20px; }
-        .card { width: 50px; height: 50px; background: #ff69b4; border-radius: 5px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5em; }
-        a { color: #ffd700; text-decoration: none; font-weight: bold; }
-    </style>
-</head>
-<body>
-    <h1>Let's Play! 🎉</h1>
-    <div class="game">
-        <h2>Love Quiz</h2>
-        <p>What’s my favorite color?</p>
-        <button onclick="document.getElementById('quiz-result').innerText='Correct! 💖'">Blue</button>
-        <button onclick="document.getElementById('quiz-result').innerText='Dude i will murder ya'">Green</button>
-	<button onclick="document.getElementById('quiz-result').innerText='Try again! '">Pink</button>
-	<button onclick="document.getElementById('quiz-result').innerText='Sleek and shiny but no '">Black</button>
-	<button onclick="document.getElementById('quiz-result').innerText='I only like one thing of tht colour and thts somewhere down on u ;)'">Pink</button>
-	<button onclick="document.getElementById('quiz-result').innerText='Excellent 😊'">Sap Green</button>
-
-        <p id="quiz-result"></p>
-    </div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Games</title>
-    <style>
-        body { background: linear-gradient(to right, #ffb6c1, #ff69b4); font-family: Arial, sans-serif; color: #8b0000; text-align: center; padding: 20px; }
-        h1 { color: #ff1493; font-size: 2.5em; }
-        .game { background: #fffacd; border: 2px solid #ffd700; padding: 20px; margin: 20px auto; width: 80%; border-radius: 10px; }
-        button { background: #ff4500; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin: 5px; }
-        button:hover { background: #ff6347; }
         #quiz-result, #guess-result, #calc-result { font-weight: bold; color: #ff1493; margin-top: 10px; }
         .memory-grid { display: grid; grid-template-columns: repeat(4, 50px); gap: 5px; justify-content: center; margin: 20px; }
         .card { width: 50px; height: 50px; background: #ff69b4; border-radius: 5px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5em; }
@@ -56,20 +24,19 @@
     <div class="game">
         <h2>Love Quiz</h2>
         <p>What’s my favorite color?</p>
-        <button onclick="document.getElementById('quiz-result').innerText='Correct! 💖'">Pink</button>
-        <button onclick="document.getElementById('quiz-result').innerText='Try again! 😊'">Blue</button>
+        <button onclick="document.getElementById('quiz-result').innerText='Correct! 💖'">Blue</button>
+        <button onclick="document.getElementById('quiz-result').innerText='Excellent! 😊'">Sap Green</button>
+	<button onclick="document.getElementById('quiz-result').innerText='U mean lower lips , Ofcccc'">Pink</button>
+	<button onclick="document.getElementById('quiz-result').innerText='Nh its vintage but no 😊'">Black</button>
+	<button onclick="document.getElementById('quiz-result').innerText='I wanna be whitee">White</button>
+<button onclick="document.getElementById('quiz-result').innerText='hatt Bts'">Violet</button>
+
         <p id="quiz-result"></p>
     </div>
- 
     
-    <div class="game">
-        <h2>Love Calculator</h2>
-        <p>Enter your names to see your "compatibility"!</p>
-        <input type="text" id="name1" placeholder="Your Name" style="padding: 5px; margin: 5px;">
-        <input type="text" id="name2" placeholder="GF's Name" style="padding: 5px; margin: 5px;">
-        <button onclick="calculateLove()">Calculate!</button>
-        <p id="calc-result"></p>
-    </div>
+    
+    
+  
     
     <div class="game">
         <h2>Spin the Wheel of Love</h2>
@@ -100,7 +67,7 @@
         }
         
         function spinWheel() {
-            const compliments = ['You\'re my everything!', 'Best date ever!', 'Forever mine!', 'So romantic!', 'Adventure awaits!', 'Mutki','Lil Mrs.Koala'',"Kissi , Muah muah "];
+            const compliments = ['You\'re my everything!', 'Forever mine!', 'So romantic!', 'Adventure awaits!','Mutki!','Mrs.Koala','Mah mommy'];
             const result = compliments[Math.floor(Math.random() * compliments.length)];
             document.getElementById('spin-result').innerText = result;
             // Simple spin animation (visual only)
@@ -121,35 +88,6 @@
                 card.addEventListener('click', () => {
                     card.innerText = symbol;
                     setTimeout(() => card.innerText = '', 1000); // Reveal briefly
-                });
-                grid.appendChild(card);
-            });
-        }
-    </script>
-</body>
-</html>
-    <div class="game">
-        <h2>Memory Match (Find the Hearts!)</h2>
-        <div class="memory-grid" id="memory-game">
-            <!-- Simple matching game: Click to reveal, match pairs -->
-        </div>
-        <button onclick="startMemoryGame()">Start Game</button>
-    </div>
-    <p><a href="INDEX1.html">Back to Home</a></p>
-    <script>
-        function startMemoryGame() {
-            const grid = document.getElementById('memory-game');
-            grid.innerHTML = '';
-            const cards = ['❤️', '❤️', '💕', '💕', '😘', '😘', '🌹', '🌹'];
-            cards.sort(() => Math.random() - 0.5);
-            cards.forEach(symbol => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.dataset.symbol = symbol;
-                card.addEventListener('click', () => {
-                    card.innerText = symbol;
-                    // Basic match logic (simplified)
-                    setTimeout(() => card.innerText = '', 1000);
                 });
                 grid.appendChild(card);
             });
